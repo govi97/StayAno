@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prashant</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body>
+
+
+
+<header>
+    <div class="logo">
+      <%= image_tag("logo1.png", :alt => "rss feed") %>
+
+    </div>
+    <div class="brand">
+      stayano
+    </div>
+
+ <% if user_signed_in? %>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+   <%= link_to 'logout', destroy_user_session_path, method: :get , data: {confirm: 'Are you Sure?'} , :class =>'logout'%>
+     
+</div>
+
+   <div class="dropmenu">
+      <span style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+   </div>
+
+
+
+   
+
+         <% end -%>
+
+
+</header>
+
+ <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+
+
+<%= yield %>
+
+</body>
+</html>
